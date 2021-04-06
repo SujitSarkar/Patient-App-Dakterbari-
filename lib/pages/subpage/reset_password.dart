@@ -7,6 +7,7 @@ import 'package:user_panel/pages/login_page.dart';
 import 'package:user_panel/provider/patient_provider.dart';
 import 'package:user_panel/shared/form_decoration.dart';
 import 'package:user_panel/widgets/button_widgets.dart';
+import 'package:user_panel/widgets/custom_app_bar.dart';
 import 'package:user_panel/widgets/notification_widget.dart';
 
 // ignore: must_be_immutable
@@ -26,6 +27,7 @@ class _ResetPasswordState extends State<ResetPassword> {
       resizeToAvoidBottomInset: false,
       key: _scaffoldKey,
       backgroundColor: Color(0xffF4F7F5),
+      appBar: customAppBarDesign(context, 'Reset Password'),
       body: _bodyUI(),
     );
   }

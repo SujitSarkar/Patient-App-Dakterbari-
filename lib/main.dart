@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
                IgnorePointer(
                    child: AnimationScreen(
                      color: Color(0xff810043),
-                     appName: 'Dakterbari',
+                     appName: 'Patient App',
                    )
                )
              ],

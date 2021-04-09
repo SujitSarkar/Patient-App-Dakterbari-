@@ -41,19 +41,19 @@ class _ResetPasswordState extends State<ResetPassword> {
         // mainAxisAlignment: MainAxisAlignment.center,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 60),
           Container(
-            alignment: Alignment.center,
-            width: size.width,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              child: Image.asset(
-                "assets/banner.png",
-                width: size.width * .9,
-                //width: 100,
-                fit: BoxFit.contain,
-              ),
-            ),
+              height: size.height * .15,
+              width: size.width,
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                child: Image.asset(
+                  "assets/banner.png",
+                  //width: 100,
+                  fit: BoxFit.fitWidth,
+                ),
+              )
           ),
           SizedBox(height: 30),
 

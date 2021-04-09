@@ -46,33 +46,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //Heading Section
-
-            SizedBox(height: 40),
             Container(
-              height: size.height * .20,
-              width: size.width,
-              color: Color(0xffF4F7F5),
-              child: Stack(
+                height: size.height * .15,
+                width: size.width,
                 alignment: Alignment.center,
-                children: [
-                  ///Logo Icon...
-                  Positioned(
-                      top: size.height * .11,
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: size.width,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          child: Image.asset(
-                            "assets/banner.png",width: size.width*.9,
-                            //width: 100,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      )),
-                  SizedBox(height: 5),
-                ],
-              ),
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  child: Image.asset(
+                    "assets/banner.png",
+                    //width: 100,
+                    fit: BoxFit.fitWidth,
+                  ),
+                )
             ),
             SizedBox(height: 30),
             Text(

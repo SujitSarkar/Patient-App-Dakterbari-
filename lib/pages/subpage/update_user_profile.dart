@@ -11,6 +11,7 @@ import 'package:user_panel/shared/form_decoration.dart';
 import 'package:user_panel/shared/static_variable_page.dart';
 import 'package:user_panel/widgets/button_widgets.dart';
 import 'package:user_panel/widgets/notification_widget.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class UpdateUserProfile extends StatefulWidget {
   @override
@@ -100,8 +101,14 @@ class _UpdateUserProfileState extends State<UpdateUserProfile> {
                     width: size.width * .40,
                     margin: EdgeInsets.only(left: 10, top: 10),
                     child: InkWell(
-                      onTap: (){
-                        _getImageFromGallery(operation);
+                      onTap: ()async {
+                        PermissionStatus storageStatus = await Permission.storage.status;
+                        if (!storageStatus.isGranted) await Permission.storage.request();
+                        if(await Permission.storage.isGranted) {
+                          _getImageFromGallery(operation);
+                        }else {
+                          showAlertDialog(context, 'Allow storage permission to access gallery');
+                        }
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

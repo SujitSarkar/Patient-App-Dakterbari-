@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:user_panel/pages/login_page.dart';
@@ -145,8 +146,16 @@ class FunctionBuilder extends StatelessWidget {
               });
             }
 
-            else if(index==1)
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ContactUs()));
+            else if(index==1){
+              PermissionStatus locationStatus = await Permission.location.status;
+              if (!locationStatus.isGranted) await Permission.location.request();
+              if(await Permission.location.isGranted) {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => ContactUs()));
+              }else {
+                showAlertDialog(context, 'Allow location access to contact with us');
+              }
+            }
 
             else if (index==2)
               Navigator.push(

@@ -15,9 +15,10 @@ class MakeAppointmentPayment extends StatefulWidget {
 
   AppointmentProvider appointmentProvider;
   PatientProvider patientProvider;
+  String email;
 
   MakeAppointmentPayment(
-      {this.appointmentProvider, this.patientProvider});
+      {this.appointmentProvider, this.patientProvider,this.email});
 
   @override
   _MakeAppointmentPaymentState createState() => _MakeAppointmentPaymentState();
@@ -179,7 +180,7 @@ class _MakeAppointmentPaymentState extends State<MakeAppointmentPayment> {
                     cancelUrl: "/cancel",
                     successUrl: "/confirm",
                     failUrl: "/fail",
-                    customerEmail: '${widget.patientProvider.patientList[0].email}',
+                    customerEmail: widget.email,
                     customerMobile: '$pId',
                     customerName: '${widget.patientProvider.patientList[0].fullName}',
                     signature: "44180c54f52b3050884279c17d91bd04",

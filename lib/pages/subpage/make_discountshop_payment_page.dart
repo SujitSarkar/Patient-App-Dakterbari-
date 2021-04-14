@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_panel/provider/patient_provider.dart';
 import 'package:user_panel/widgets/custom_app_bar.dart';
 import 'package:aamarpay/aamarpay.dart';
 import 'package:user_panel/widgets/button_widgets.dart';
@@ -80,6 +81,9 @@ class _MakeDiscountShopPaymentState extends State<MakeDiscountShopPayment> {
 
   String _payableAmount='0';
   String _transactionId;
+  String _email='';
+  String _checkingEmail='';
+  int _counter=0;
 
   @override
   void initState() {
@@ -87,20 +91,28 @@ class _MakeDiscountShopPaymentState extends State<MakeDiscountShopPayment> {
     super.initState();
     _transactionId = widget.pId+DateTime.now().millisecondsSinceEpoch.toString();
   }
+  _customInit(PatientProvider pProvider)async{
+    _email = pProvider.patientList[0].email??'';
+    _checkingEmail = pProvider.patientList[0].email??'';
+    setState(()=>_counter++);
+  }
 
   @override
   Widget build(BuildContext context) {
+    final PatientProvider pProvider= Provider.of<PatientProvider>(context);
+    if(_counter==0) _customInit(pProvider);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       key: _scaffoldKey,
       backgroundColor: Colors.white,
       appBar: customAppBarDesign(context, 'Confirm Payment'),
-      body: _bodyUI(),
+      body: _bodyUI(pProvider),
     );
   }
 
-  Widget _bodyUI(){
+  Widget _bodyUI(PatientProvider pProvider){
     bool isLoading = false;
+
     return Consumer<DiscountShopProvider>(
       builder: (context, disProvider, child){
         return Container(
@@ -132,15 +144,27 @@ class _MakeDiscountShopPaymentState extends State<MakeDiscountShopPayment> {
                       ),
                       onChanged: (val)=>setState(()=>_payableAmount=val),
                     ),
+                    SizedBox(height: 20),
+
+                    _checkingEmail.isEmpty || !_checkingEmail.contains('@') || !_checkingEmail.contains('.com')? TextFormField(
+                     keyboardType: TextInputType.emailAddress,
+                     decoration: FormDecoration.copyWith(
+                         labelText: 'Enter your email address',
+                         prefixIcon: null,
+                         fillColor: Color(0xffF4F7F5)
+                     ),
+                     onChanged: (val)=>setState(()=>_email=val),
+                   ):Container(),
                   ],
                 ),
                 SizedBox(height: 30),
 
                 _payableAmount.isNotEmpty
-                    ? int.parse(_payableAmount)>=50
+                    ? int.parse(_payableAmount)>=50?
+                    _email.isNotEmpty && _email.contains('@') && _email.contains('.com')
                     ? AamarpayData(
                     returnUrl: (url) async{
-                      // setState(()=> _isLoading = false);
+                      print('URL is: $url');
                       if (url == 'https://secure.aamarpay.com/cancel')
                         showSnackBar(
                             _scaffoldKey, 'Payment canceled', Colors.deepOrange);
@@ -171,15 +195,26 @@ class _MakeDiscountShopPaymentState extends State<MakeDiscountShopPayment> {
                     cancelUrl: "/cancel",
                     successUrl: "/confirm",
                     failUrl: "/fail",
-                    //customerEmail: "masumbillahsanjid@gmail.com",
+                    customerEmail: _email,
                     customerMobile: '${widget.pId}',
                     customerName: '${widget.pName}',
                     signature: "44180c54f52b3050884279c17d91bd04",
                     storeID: "dakterbari",
                     transactionAmount: _payableAmount,
                     transactionID: _transactionId,
-                    // description: "asgsg",
                     url: "https://secure.aamarpay.com",
+                    // cancelUrl: "/cancel",
+                    // successUrl: "/confirm",
+                    // failUrl: "/fail",
+                    // //customerEmail: "masumbillahsanjid@gmail.com",
+                    // customerMobile: '${widget.pId}',
+                    // customerName: '${widget.pName}',
+                    // signature: "44180c54f52b3050884279c17d91bd04",
+                    // storeID: "dakterbari",
+                    // transactionAmount: _payableAmount,
+                    // transactionID: _transactionId,
+                    // // description: "asgsg",
+                    // url: "https://secure.aamarpay.com",
                     child: isLoading
                         ? Center(
                       child: CircularProgressIndicator(),
@@ -199,7 +234,7 @@ class _MakeDiscountShopPaymentState extends State<MakeDiscountShopPayment> {
                   margin: EdgeInsets.only(bottom: 10),
                   height: 50,
                   child: disableButton(context, 'Pay min 50 BD TK'),
-                ),
+                ):Container(),
               ],
             ),
           ),

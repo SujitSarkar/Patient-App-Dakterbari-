@@ -60,7 +60,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/dakterbari_logo.jpg"
+  image_path: "assets/app_icon.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -79,7 +79,6 @@ flutter:
     - assets/male.png
     - assets/female.png
     - assets/patient_apps.jpg
-    - assets/dakterbariapp_logo.jpg
     - assets/doctor_patient.png
     - assets/loadingimage.gif
     - assets/home_icon/notifications.png

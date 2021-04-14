@@ -105,6 +105,7 @@ class PatientProvider extends RegAuth{
       operation.patientList[0].state= operation.patientDetails.state.isEmpty? operation.patientList[0].state :operation.patientDetails.state;
       operation.patientList[0].city= operation.patientDetails.city.isEmpty? operation.patientList[0].city :operation.patientDetails.city;
       notifyListeners();
+      getPatient();
       Navigator.pop(context);
       showSnackBar(scaffoldKey,'Updated successful',Theme.of(context).primaryColor);
 

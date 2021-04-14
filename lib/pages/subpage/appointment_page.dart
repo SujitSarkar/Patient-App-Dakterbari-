@@ -29,9 +29,11 @@ class Appointment extends StatefulWidget {
 
 class _AppointmentState extends State<Appointment> {
   int _counter=0;
+  String _email = '';
+  String _checkingEmail = '';
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void _initializeData(AppointmentProvider appointmentProvider){
+  void _initializeData(AppointmentProvider appointmentProvider,PatientProvider patientProvider){
     setState(()=>_counter++);
     appointmentProvider.appointmentDetailsModel.pProblem='';
     appointmentProvider.appointmentDetailsModel.appointDate='';
@@ -47,6 +49,8 @@ class _AppointmentState extends State<Appointment> {
     appointmentProvider.appointmentDetailsModel.teleFee=widget.teleFee;
     appointmentProvider.appointmentDetailsModel.currency=widget.currency;
     print(appointmentProvider.appointmentDetailsModel.drDegree=widget.degree);
+    _checkingEmail = patientProvider.patientList[0].email ??'';
+    _email = patientProvider.patientList[0].email ??'';
   }
 
   @override
@@ -55,7 +59,7 @@ class _AppointmentState extends State<Appointment> {
     final PatientProvider patientProvider= Provider.of<PatientProvider>(context);
     final DoctorProvider drProvider= Provider.of<DoctorProvider>(context);
 
-    if(_counter==0) _initializeData(appointmentProvider);
+    if(_counter==0) _initializeData(appointmentProvider,patientProvider);
 
     return Scaffold(
       key: _scaffoldKey,
@@ -153,6 +157,8 @@ class _AppointmentState extends State<Appointment> {
 
           ///Problem Container
           _textFormBuilder('Problems', appointmentProvider),
+          SizedBox(height: 20),
+          _checkingEmail.isEmpty || !_checkingEmail.contains('@') || !_checkingEmail.contains('.com')? _textFormBuilder('Enter your email address', appointmentProvider):Container(),
           SizedBox(height: 30),
 
           ///Get Appointment button
@@ -182,7 +188,8 @@ class _AppointmentState extends State<Appointment> {
         maxLines: hint=='Problems'? 5:1,
         onChanged: (val){
           hint=='Problems'? appointmentProvider.appointmentDetailsModel.pProblem=val
-          :appointmentProvider.appointmentDetailsModel.appointDate=val;
+          :hint=='Appointment date'?appointmentProvider.appointmentDetailsModel.appointDate=val
+              :_email=val;
         },
       ),
     );
@@ -471,10 +478,13 @@ class _AppointmentState extends State<Appointment> {
             appointmentProvider.appointmentDetailsModel.bookingSchedule!='Unavailable'){
           if(appointmentProvider.appointmentDetailsModel.appointDate!='' &&
               appointmentProvider.appointmentDetailsModel.pProblem!=''){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>MakeAppointmentPayment(
-              appointmentProvider: appointmentProvider,
-              patientProvider: patientProvider,
-            )));
+            if(_email.contains('@') && _email.contains('.com')){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MakeAppointmentPayment(
+                appointmentProvider: appointmentProvider,
+                patientProvider: patientProvider,
+                email: _email,
+              )));
+            }else showSnackBar(_scaffoldKey,'Invalid email address, update your first',Colors.deepOrange);
           }else showSnackBar(_scaffoldKey,'Define appoint date & your problems',Colors.deepOrange);
         }else showSnackBar(_scaffoldKey,'Select Booking Schedule',Colors.deepOrange);
       }else showSnackBar(_scaffoldKey,'Select Chamber or Hospital',Colors.deepOrange);
@@ -484,11 +494,13 @@ class _AppointmentState extends State<Appointment> {
           appointmentProvider.appointmentDetailsModel.bookingSchedule!='Unavailable'){
         if(appointmentProvider.appointmentDetailsModel.appointDate!='' &&
             appointmentProvider.appointmentDetailsModel.pProblem!=''){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>MakeAppointmentPayment(
-            appointmentProvider: appointmentProvider,
-            patientProvider: patientProvider,
-          )
-          ));
+          if(_email.contains('@') && _email.contains('.com')){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>MakeAppointmentPayment(
+              appointmentProvider: appointmentProvider,
+              patientProvider: patientProvider,
+              email: _email,
+            )));
+          }else showSnackBar(_scaffoldKey,'Invalid email address, update your first',Colors.deepOrange);
         }else showSnackBar(_scaffoldKey,'Define appoint date & your problems',Colors.deepOrange);
       }else showSnackBar(_scaffoldKey,'Select Booking Schedule',Colors.deepOrange);
     }

@@ -9,12 +9,12 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <!--    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />-->
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
+<!--    <uses-permission android:name="android.permission.BLUETOOTH"/>-->
     <application
         android:usesCleartextTraffic="true"
         android:name="io.flutter.app.FlutterApplication"
         android:label="Patient App"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

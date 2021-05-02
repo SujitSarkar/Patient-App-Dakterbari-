@@ -8,7 +8,7 @@ import 'package:user_panel/widgets/notification_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AppointmentProvider extends RegAuth {
-  List<AppointmentDetailsModel> _appointmentList = List<AppointmentDetailsModel>();
+  List<AppointmentDetailsModel> _appointmentList = [];
   AppointmentDetailsModel _appointmentDetailsModel = AppointmentDetailsModel();
 
   List<bool> _starList = [false,false,false,false,false];

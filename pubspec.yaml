@@ -24,33 +24,31 @@ dependencies:
   flutter:
     sdk: flutter
 #  dropdownfield: ^1.0.3
-  google_maps_flutter: ^1.0.6
-  connectivity: ^2.0.2
-  country_code_picker: ^1.7.0
-  firebase_core: ^0.7.0
+  google_maps_flutter:
+  connectivity:
+  country_code_picker:
+  firebase_core:
   firebase_auth: ^0.20.0+1
-  cloud_firestore: ^0.16.0
-  firebase_storage: ^7.0.0
+  cloud_firestore:
+  firebase_storage:
 #  firebase_database: ^6.0.0
-  provider: ^4.3.3
-  shared_preferences: ^0.5.12+4
-  intl: ^0.16.1
+  provider:
+  shared_preferences:
+  intl:
   image_picker: ^0.6.7+22
-  cached_network_image: ^2.5.0
-  country_state_city_picker: ^1.2.7
-  alphabet_list_scroll_view: ^1.0.6
-  url_launcher: ^5.7.10
-  esys_flutter_share: ^1.0.2
-    #  share: ^0.6.5+4
+  cached_network_image:
+  country_state_city_picker:
+  alphabet_list_scroll_view:
+  url_launcher:
+  esys_flutter_share:
+#  share: ^0.6.5+4
 #  http: ^0.12.2
-  pie_chart: ^4.0.1
+  pie_chart:
   aamarpay: ^0.0.7
-  flutter_staggered_animations: ^0.1.3
-  expandable_text: ^2.0.0
-  permission_handler: ^5.0.1+1
+  flutter_staggered_animations:
+  expandable_text:
+  permission_handler:
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
@@ -99,7 +97,7 @@ flutter:
     - assets/home_icon/account.png
     - assets/home_icon/discount.png
     #  - Medical Category
-    - assets/medical_category/coronavirus.png
+#    - assets/medical_category/coronavirus.png
     - assets/medical_category/cardiology.png
     - assets/medical_category/chest.png
     - assets/medical_category/cancer.png

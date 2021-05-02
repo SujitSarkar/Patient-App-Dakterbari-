@@ -9,9 +9,9 @@ import 'package:user_panel/model/forum_ans_model.dart';
 
 class ForumProvider extends RegAuth {
 
-  List<ForumModel> _myQuesList = List();
-  List<ForumModel> _allQuesList = List();
-  List<ForumAnsModel> _answerList = List();
+  List<ForumModel> _myQuesList = [];
+  List<ForumModel> _allQuesList = [];
+  List<ForumAnsModel> _answerList = [];
 
   get myQuesList=> _myQuesList;
   get allQuesList=> _allQuesList;

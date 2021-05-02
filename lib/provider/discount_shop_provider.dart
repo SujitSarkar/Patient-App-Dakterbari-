@@ -15,11 +15,11 @@ class DiscountShopProvider extends RegAuth{
   FeaturedProductModel _featuredProductModel = FeaturedProductModel();
   DiscountShopReviewModel _discountShopReviewModel=DiscountShopReviewModel();
 
-  List<DiscountShopModel> _shopList= List<DiscountShopModel>();
-  List<SubscriptionDiscountShopModel> _subscribedShopList= List<SubscriptionDiscountShopModel>();
-  List<DiscountShopModel> _shopIdList= List<DiscountShopModel>();
-  List<FeaturedProductModel> _productList = List<FeaturedProductModel>();
-  List<DiscountShopReviewModel> _discountShopReviewList=List<DiscountShopReviewModel>();
+  List<DiscountShopModel> _shopList= [];
+  List<SubscriptionDiscountShopModel> _subscribedShopList= [];
+  List<DiscountShopModel> _shopIdList= [];
+  List<FeaturedProductModel> _productList = [];
+  List<DiscountShopReviewModel> _discountShopReviewList=[];
 
   ///for discount shop review
   List<bool> _starList = [false,false,false,false,false];

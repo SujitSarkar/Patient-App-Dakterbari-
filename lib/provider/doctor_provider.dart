@@ -5,12 +5,12 @@ import 'package:user_panel/model/faq_model.dart';
 import 'package:user_panel/provider/reg_auth_provider.dart';
 
 class DoctorProvider extends RegAuth{
-   List<DoctorDetailsModel> _doctorList=List<DoctorDetailsModel>();
-   List<DoctorDetailsModel> _doctorCategoryList=List<DoctorDetailsModel>();
-   List<DoctorDetailsModel> _optionalSpecificationList=List<DoctorDetailsModel>();
-   List<FaqModel> _faqList = List<FaqModel>();
+   List<DoctorDetailsModel> _doctorList=[];
+   List<DoctorDetailsModel> _doctorCategoryList=[];
+   List<DoctorDetailsModel> _optionalSpecificationList=[];
+   List<FaqModel> _faqList = [];
 
-   List<HospitalModel> _hospitalList=List<HospitalModel>();
+   List<HospitalModel> _hospitalList=[];
    FaqModel _faqModel = FaqModel();
 
    get doctorList=> _doctorList;

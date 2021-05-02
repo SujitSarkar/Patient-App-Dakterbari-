@@ -7,7 +7,6 @@ import 'package:user_panel/pages/login_page.dart';
 import 'package:user_panel/provider/article_provider.dart';
 import 'package:user_panel/provider/discount_shop_provider.dart';
 import 'package:user_panel/provider/forum_provider.dart';
-import 'package:user_panel/provider/medicine_provider.dart';
 import 'package:user_panel/provider/patient_provider.dart';
 import 'package:user_panel/provider/doctor_provider.dart';
 import 'package:user_panel/provider/reg_auth_provider.dart';
@@ -64,7 +63,6 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider(create: (context)=>RegAuth(),),
         ChangeNotifierProvider(create: (context)=>PatientProvider(),),
-        ChangeNotifierProvider(create: (context)=>MedicineProvider(),),
         ChangeNotifierProvider(create: (context)=>DoctorProvider(),),
         ChangeNotifierProvider(create: (context)=>AppointmentProvider(),),
         ChangeNotifierProvider(create: (context)=>ArticleProvider(),),

@@ -2,13 +2,10 @@ import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:user_panel/pages/appointment_list_page.dart';
 import 'package:user_panel/pages/blog_page.dart';
-import 'package:user_panel/pages/credit_assesments.dart';
-import 'package:user_panel/pages/helth_insurance.dart';
-import 'package:user_panel/pages/join_rider.dart';
 import 'package:user_panel/pages/all_doctors_category.dart';
-import 'package:user_panel/pages/medicine_page.dart';
 import 'package:user_panel/pages/my_account.dart';
 import 'package:user_panel/pages/shopping.dart';
 import 'package:user_panel/pages/support_center_page.dart';
@@ -16,7 +13,6 @@ import 'package:user_panel/provider/appointment_provider.dart';
 import 'package:user_panel/provider/article_provider.dart';
 import 'package:user_panel/provider/discount_shop_provider.dart';
 import 'package:user_panel/provider/forum_provider.dart';
-import 'package:user_panel/provider/medicine_provider.dart';
 import 'package:user_panel/provider/patient_provider.dart';
 import 'package:user_panel/widgets/custom_app_bar.dart';
 import 'package:user_panel/widgets/notification_widget.dart';
@@ -56,14 +52,12 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _initialLists(
       PatientProvider pProvider,
-      MedicineProvider mProvider,
       ArticleProvider articleProvider,
       ForumProvider forumProvider,
       DiscountShopProvider disProvider,
       AppointmentProvider appProvider) async {
     setState(() => _counter++);
     await pProvider.getPatient().then((value) async {
-      await mProvider.getMedicine();
       await articleProvider.getAllArticle();
       await articleProvider.getPopularArticle();
       await forumProvider.getAllQuestionList();
@@ -80,7 +74,6 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
 
     final PatientProvider pProvider = Provider.of<PatientProvider>(context);
-    final MedicineProvider mProvider = Provider.of<MedicineProvider>(context);
     final ArticleProvider articleProvider =
         Provider.of<ArticleProvider>(context);
     final ForumProvider forumProvider = Provider.of<ForumProvider>(context);
@@ -90,7 +83,7 @@ class _HomePageState extends State<HomePage> {
         Provider.of<AppointmentProvider>(context);
 
     if (_counter == 0 || pProvider.patientList.isEmpty)
-      _initialLists(pProvider, mProvider, articleProvider, forumProvider,
+      _initialLists(pProvider, articleProvider, forumProvider,
           disProvider, appProvider);
 
     return Scaffold(
@@ -100,7 +93,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: customAppBarDesign(context, 'Dakterbari | ডাক্তারবাড়ি'),
       body: _isConnected
-          ? _bodyUI(size, pProvider, mProvider, articleProvider, forumProvider,
+          ? _bodyUI(size, pProvider, articleProvider, forumProvider,
               disProvider, appProvider)
           : _noInternetUI(),
     );
@@ -109,7 +102,6 @@ class _HomePageState extends State<HomePage> {
   Widget _bodyUI(
       Size size,
       PatientProvider pProvider,
-      MedicineProvider mProvider,
       ArticleProvider articleProvider,
       ForumProvider forumProvider,
       DiscountShopProvider disProvider,
@@ -145,7 +137,7 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: RefreshIndicator(
               backgroundColor: Colors.white,
-              onRefresh: () => _initialLists(pProvider, mProvider,
+              onRefresh: () => _initialLists(pProvider,
                   articleProvider, forumProvider, disProvider, appProvider),
               child: AnimationLimiter(
                 child: GridView.builder(
@@ -154,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisSpacing: 10,
                       crossAxisCount: 3,
                     ),
-                    itemCount: 13,
+                    itemCount: 12,
                     itemBuilder: (context, index) {
                       return AnimationConfiguration.staggeredList(
                           position: index,
@@ -236,9 +228,21 @@ class GridBuilderTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final PatientProvider patientProvider =
         Provider.of<PatientProvider>(context);
-    final MedicineProvider provider = Provider.of<MedicineProvider>(context);
     final ArticleProvider articleProvider =
         Provider.of<ArticleProvider>(context);
+
+    Future<void> _launchInWebViewWithJavaScript(BuildContext context, String url) async {
+      if (await canLaunch(url)) {
+        await launch(
+          url,
+          //forceSafariVC: true,
+          forceWebView: true,
+          enableJavaScript: true,
+        );
+      } else {
+        showAlertDialog(context, 'Something went wrong. Try again later');
+      }
+    }
 
     return InkWell(
       onTap: () async {
@@ -275,33 +279,18 @@ class GridBuilderTile extends StatelessWidget {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => DiscountShopTab()));
 
-        ///Medicine
-        if (index == 4) {
-          if (provider.medicineList.isEmpty) {
-            provider.loadingMgs = 'Please wait...';
-            showLoadingDialog(context, provider);
-            await provider.getMedicine().then((value) {
-              Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MedicinePage()));
-            });
-          } else
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MedicinePage()));
-        }
-
         ///Notification
-        if (index == 5)
+        if (index == 4)
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => Notifications()));
 
         ///Shop
-        if (index == 6)
+        if (index == 5)
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Shopping()));
 
         ///Forum page
-        if (index == 7) {
+        if (index == 6) {
           if (patientProvider.patientList.isEmpty) {
             patientProvider.loadingMgs = 'Please wait...';
             showLoadingDialog(context, patientProvider);
@@ -316,7 +305,7 @@ class GridBuilderTile extends StatelessWidget {
         }
 
         ///Blog
-        if (index == 8) {
+        if (index == 7) {
           if (articleProvider.allArticleList.isEmpty) {
             articleProvider.loadingMgs = 'Please wait...';
             showLoadingDialog(context, articleProvider);
@@ -333,23 +322,20 @@ class GridBuilderTile extends StatelessWidget {
                 context, MaterialPageRoute(builder: (context) => BlogPage()));
         }
 
-        ///Credit Assesment
-        if (index == 9)
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => CreditAssesment()));
+        ///eLoan
+        if (index == 8)
+          _launchInWebViewWithJavaScript(context, 'https://docs.google.com/forms/d/e/1FAIpQLSdZxuA_haPM3cG8QnonMLpeZ_j--Inyfg76bc_LMkzxaU6hIg/viewform');
 
         ///health Insurence
-        if (index == 10)
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => HealthInsurance()));
+        if (index == 9)
+          _launchInWebViewWithJavaScript(context, 'https://dakterbari.com/health-insurance/');
 
         ///Join Rider
-        if (index == 11)
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => JoinRider()));
+        if (index == 10)
+          _launchInWebViewWithJavaScript(context, 'https://docs.google.com/forms/d/e/1FAIpQLSdgK1nqIb-v5fgkgcFGnkeUXMLoaoHkxQGngw3vM89WLUFBrg/viewform');
 
         ///Support Center
-        if (index == 12)
+        if (index == 11)
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => SupportCenter()));
       },
@@ -381,27 +367,24 @@ class GridBuilderTile extends StatelessWidget {
                               : index == 3
                                   ? AssetImage('assets/home_icon/discount.png')
                                   : index == 4
-                                      ? AssetImage(
-                                          'assets/home_icon/medicine.png')
-                                      : index == 5
                                           ? AssetImage(
                                               'assets/home_icon/notifications.png')
-                                          : index == 6
+                                          : index == 5
                                               ? AssetImage(
                                                   'assets/home_icon/shopping.png')
-                                              : index == 7
+                                              : index == 6
                                                   ? AssetImage(
                                                       'assets/home_icon/forum.png')
-                                                  : index == 8
+                                                  : index == 7
                                                       ? AssetImage(
                                                           'assets/home_icon/blog.png')
-                                                      : index == 9
+                                                      : index == 8
                                                           ? AssetImage(
                                                               'assets/home_icon/credit_assesment.png')
-                                                          : index == 10
+                                                          : index == 9
                                                               ? AssetImage(
                                                                   'assets/home_icon/health_insurance.png')
-                                                              : index == 11
+                                                              : index == 10
                                                                   ? AssetImage(
                                                                       'assets/home_icon/join_riders.png')
                                                                   : AssetImage(
@@ -423,21 +406,19 @@ class GridBuilderTile extends StatelessWidget {
                         ? 'Appointment'
                         : index == 3
                             ? 'Discount Shop'
-                            : index == 4
-                                ? 'Medicine'
-                                : index == 5
+                                : index == 4
                                     ? 'Notifications'
-                                    : index == 6
+                                    : index == 5
                                         ? 'Shopping'
-                                        : index == 7
+                                        : index == 6
                                             ? 'Forum'
-                                            : index == 8
+                                            : index == 7
                                                 ? 'Blog'
-                                                : index == 9
-                                                    ? 'Credit Assesments'
-                                                    : index == 10
+                                                : index == 8
+                                                    ? 'eLoan'
+                                                    : index == 9
                                                         ? 'Health Insurance'
-                                                        : index == 11
+                                                        : index == 10
                                                             ? 'Join Rider'
                                                             : 'Support Center',
             textAlign: TextAlign.center,

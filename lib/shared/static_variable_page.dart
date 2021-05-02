@@ -219,7 +219,6 @@ class StaticVariables {
 
 
   static const List<String> doctorCategory=[
-    'COVID-19 (Coronavirus)',
     'Child Specialists (Pediatricians)',
     'Cardiologist',
     'Chest specialist',

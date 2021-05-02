@@ -13,21 +13,21 @@ class ArticleProvider extends RegAuth{
 
   ArticleModel _articleModel = ArticleModel();
 
-  List<ArticleModel> _allArticleList=List<ArticleModel>();
-  List<ArticleModel> _newsArticleList=List<ArticleModel>();
-  List<ArticleModel> _diseasesArticleList=List<ArticleModel>();
-  List<ArticleModel> _healthArticleList=List<ArticleModel>();
-  List<ArticleModel> _foodArticleList=List<ArticleModel>();
-  List<ArticleModel> _medicineArticleList=List<ArticleModel>();
-  List<ArticleModel> _medicareArticleList=List<ArticleModel>();
-  List<ArticleModel> _tourismArticleList=List<ArticleModel>();
-  List<ArticleModel> _symptomsArticleList=List<ArticleModel>();
-  List<ArticleModel> _visualArticleList=List<ArticleModel>();
+  List<ArticleModel> _allArticleList=[];
+  List<ArticleModel> _newsArticleList=[];
+  List<ArticleModel> _diseasesArticleList=[];
+  List<ArticleModel> _healthArticleList=[];
+  List<ArticleModel> _foodArticleList=[];
+  List<ArticleModel> _medicineArticleList=[];
+  List<ArticleModel> _medicareArticleList=[];
+  List<ArticleModel> _tourismArticleList=[];
+  List<ArticleModel> _symptomsArticleList=[];
+  List<ArticleModel> _visualArticleList=[];
 
-  List<ArticleModel> _popularArticleList=List<ArticleModel>();
+  List<ArticleModel> _popularArticleList=[];
 
 
-  List<ArticleCommentModel> _articleCommentList=List<ArticleCommentModel>();
+  List<ArticleCommentModel> _articleCommentList=[];
 
   get articleModel=> _articleModel;
 

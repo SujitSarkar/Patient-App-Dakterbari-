@@ -100,62 +100,60 @@ class GridBuilderTile extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: index == 0
-                          ? AssetImage('assets/medical_category/coronavirus.png')
-                          : index == 1
                           ? AssetImage('assets/medical_category/pediatrics.png')
-                          : index == 2
+                          : index == 1
                           ? AssetImage('assets/medical_category/cardiology.png')
-                          : index == 3
+                          : index == 2
                           ? AssetImage('assets/medical_category/chest.png')
-                          : index == 4
+                          : index == 3
                           ? AssetImage('assets/medical_category/cancer.png')
-                          : index == 5
+                          : index == 4
                           ? AssetImage('assets/medical_category/diabetes.png')
-                          : index == 6
+                          : index == 5
                           ? AssetImage('assets/medical_category/dentist.png')
-                          : index == 7
+                          : index == 6
                           ? AssetImage('assets/medical_category/nutrition.png')
-                          : index == 8
+                          : index == 7
                           ? AssetImage('assets/medical_category/eye.png')
-                          : index == 9
+                          : index == 8
                           ? AssetImage('assets/medical_category/ent.png')
-                          : index == 10
+                          : index == 9
                           ? AssetImage('assets/medical_category/gastroenterology.png')
-                          : index == 11
+                          : index == 10
                           ? AssetImage('assets/medical_category/gynecology.png')
-                          : index == 12
+                          : index == 11
                           ? AssetImage('assets/medical_category/hematology.png')
-                          : index == 13
+                          : index == 12
                           ? AssetImage('assets/medical_category/homeopathic.png')
-                          : index == 14
+                          : index == 13
                           ? AssetImage('assets/medical_category/medicine.png')
-                          : index == 15
+                          : index == 14
                           ? AssetImage('assets/medical_category/neuro_medicine.png')
-                          : index == 16
+                          : index == 15
                           ? AssetImage('assets/medical_category/neurosurgery.png')
-                          : index == 17
+                          : index == 16
                           ? AssetImage('assets/medical_category/oncology.png')
-                          : index == 18
+                          : index == 17
                           ? AssetImage('assets/medical_category/orthopaedic.png')
-                          : index == 19
+                          : index == 18
                           ? AssetImage('assets/medical_category/physical_medicine.png')
-                          : index == 20
+                          : index == 19
                           ? AssetImage('assets/medical_category/pain_medicine.png')
-                          : index == 21
+                          : index == 20
                           ? AssetImage('assets/medical_category/plastic_surgery.png')
-                          : index == 22
+                          : index == 21
                           ? AssetImage('assets/medical_category/physiotherapy.png')
-                          : index == 23
+                          : index == 22
                           ? AssetImage('assets/medical_category/psychiatrist.png')
-                          : index == 24
+                          : index == 23
                           ? AssetImage('assets/medical_category/skin.png')
-                          : index == 25
+                          : index == 24
                           ? AssetImage('assets/medical_category/thyroid.png')
-                          : index == 26
+                          : index == 25
                           ? AssetImage('assets/medical_category/urology_Specialist.png')
-                          : index == 27
+                          : index == 26
                           ? AssetImage('assets/medical_category/urology.png')
-                          : index == 28
+                          : index == 27
                           ? AssetImage('assets/medical_category/herbal.png')
                           : AssetImage('assets/medical_category/vascular_surgery.png')
                     ),

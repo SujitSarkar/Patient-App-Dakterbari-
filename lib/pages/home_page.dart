@@ -33,7 +33,6 @@ class _HomePageState extends State<HomePage> {
   int _counter = 0;
 
   void initState() {
-    // TODO: implement initState
     super.initState();
     _checkConnectivity();
   }

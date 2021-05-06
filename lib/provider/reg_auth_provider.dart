@@ -114,6 +114,7 @@ class RegAuth extends ChangeNotifier{
      'countryCode': patientDetails.countryCode,
      'age': patientDetails.age,
      'takenTeleService': patientDetails.takenTeleService,
+       'timeStamp': "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}",
      });
      return true;
       }

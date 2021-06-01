@@ -88,7 +88,7 @@ class RegAuth extends ChangeNotifier{
   ///patient Registration
    Future<bool>registerUser(PatientDetailsModel patientDetails) async{
     try {
-      String date=DateFormat("dd-MMM-yyyy/hh:mm:aa").format(DateTime.
+      String date=DateFormat("dd-MM-yyyy").format(DateTime.
       fromMicrosecondsSinceEpoch(DateTime.now().microsecondsSinceEpoch));
 
       SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -114,7 +114,6 @@ class RegAuth extends ChangeNotifier{
      'countryCode': patientDetails.countryCode,
      'age': patientDetails.age,
      'takenTeleService': patientDetails.takenTeleService,
-       'timeStamp': "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}",
      });
      return true;
       }

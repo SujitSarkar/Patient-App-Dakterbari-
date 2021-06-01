@@ -10,8 +10,8 @@ import 'package:user_panel/model/notification_model.dart';
 
 class PatientProvider extends RegAuth{
 
-  List<PatientDetailsModel> _patientList=List<PatientDetailsModel>();
-  List<NotificationModel> _notificationList = List<NotificationModel>();
+  List<PatientDetailsModel> _patientList=[];
+  List<NotificationModel> _notificationList =[];
 
   get patientList=>_patientList;
   get notificationList=>_notificationList;
@@ -50,7 +50,6 @@ class PatientProvider extends RegAuth{
               _patientList.add(patients);
             });
       });
-      print("Length: "+_patientList.length.toString());
       notifyListeners();
     }
     catch(error){}
@@ -121,7 +120,7 @@ class PatientProvider extends RegAuth{
     final String pId = await getPreferenceId();
     final int timeStamp = DateTime.now().millisecondsSinceEpoch;
     final String problemId= pId+timeStamp.toString();
-    final String submitDate= DateFormat("dd-MMM-yyyy/hh:mm:aa").format(DateTime.fromMillisecondsSinceEpoch(timeStamp));
+    final String submitDate= DateFormat("dd-MM-yyyy").format(DateTime.fromMillisecondsSinceEpoch(timeStamp));
 
     await FirebaseFirestore.instance.collection('UserProblems').doc(problemId).set({
       'id':problemId,

@@ -15,7 +15,6 @@ class PatientDetailsModel{
   String bloodGroup;
   String countryCode;
   String age;
-  String timeStamp;
   bool takenTeleService;
 
   PatientDetailsModel({
@@ -36,6 +35,5 @@ class PatientDetailsModel{
     this.countryCode,
     this.age,
     this.takenTeleService,
-    this.timeStamp
 });
 }

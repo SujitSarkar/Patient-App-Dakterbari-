@@ -48,7 +48,7 @@ android {
     defaultConfig {
         applicationId "com.dakterbari.user_panel"
         minSdkVersion 17
-        targetSdkVersion 29
+        targetSdkVersion 30
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

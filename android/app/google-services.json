@@ -14,48 +14,27 @@
       },
       "oauth_client": [
         {
-          "client_id": "331775188497-qi1kep40k79tnhj41hfnoaieorv1crub.apps.googleusercontent.com",
+          "client_id": "331775188497-38pp6c9v6bt26d3ili55ldt3a787qk9a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.dakterbari.admin_panel",
-            "certificate_hash": "ce25e5027bab8ec05c99d82f88b85973477ce79e"
+            "certificate_hash": "8d6e006a5c75539863ec7003ab406124107d9467"
           }
         },
         {
-          "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBXIxhn3hGn6GLo-GluXtFh7aD5SYvOhCg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:331775188497:android:9028712376c713a31a1bb0",
-        "android_client_info": {
-          "package_name": "com.dakterbari.demo"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "331775188497-k16gj461uvqt8oug8ku3rfjf4iv9mept.apps.googleusercontent.com",
+          "client_id": "331775188497-494kspphr9ps37rsmm8e0okelc7dasfn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.dakterbari.demo",
-            "certificate_hash": "ce25e5027bab8ec05c99d82f88b85973477ce79e"
+            "package_name": "com.dakterbari.admin_panel",
+            "certificate_hash": "f7392e8bbb76af27a660752fa332be102914fda5"
+          }
+        },
+        {
+          "client_id": "331775188497-esfh8h1qdiq2ahvieijsbcf56l8r6li2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dakterbari.admin_panel",
+            "certificate_hash": "064b34ddbe7b6403a2f617bff9c8365c23cc57e0"
           }
         },
         {
@@ -81,17 +60,99 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:331775188497:android:5982d2f3f14692a51a1bb0",
+        "mobilesdk_app_id": "1:331775188497:android:18784b8f73a5ca681a1bb0",
         "android_client_info": {
           "package_name": "com.dakterbari.doctorpanel"
         }
       },
       "oauth_client": [
         {
-          "client_id": "331775188497-l44eb2st97gr566ngsf8maode8m4co6s.apps.googleusercontent.com",
+          "client_id": "331775188497-7lohd68vq2ecqv1aa1honps7c0kl5pvn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.dakterbari.doctorpanel",
+            "certificate_hash": "f7392e8bbb76af27a660752fa332be102914fda5"
+          }
+        },
+        {
+          "client_id": "331775188497-rfu5jeat7h0h2tnd4h5cn55e83j71o02.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dakterbari.doctorpanel",
+            "certificate_hash": "8a0a778e1e35adb089e8857744c988fb41cd0f8f"
+          }
+        },
+        {
+          "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXIxhn3hGn6GLo-GluXtFh7aD5SYvOhCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331775188497:android:b98c7d6e58fde34b1a1bb0",
+        "android_client_info": {
+          "package_name": "com.dakterbari.doctro_app_updated"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331775188497-4t9oh9pbe930n0qogc1vg4uank42lfac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dakterbari.doctro_app_updated",
+            "certificate_hash": "f7392e8bbb76af27a660752fa332be102914fda5"
+          }
+        },
+        {
+          "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXIxhn3hGn6GLo-GluXtFh7aD5SYvOhCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331775188497:android:6f054b3d841f27f51a1bb0",
+        "android_client_info": {
+          "package_name": "com.dakterbari.representative_panel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331775188497-0ak4v01tu6sa8nf3c5jop335rge7l2c7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dakterbari.representative_panel",
             "certificate_hash": "064b34ddbe7b6403a2f617bff9c8365c23cc57e0"
           }
         },
@@ -125,48 +186,27 @@
       },
       "oauth_client": [
         {
-          "client_id": "331775188497-fhmgek3ej4q2s7l02nmkubo0gngbgpkc.apps.googleusercontent.com",
+          "client_id": "331775188497-gad9kbqfvkeuvr59q9hb7cedli6vlo1d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.dakterbari.user_panel",
-            "certificate_hash": "2692e287485e324176bc4d23d0dbfe76d8936bb8"
+            "certificate_hash": "da47c2ba74f7a07039169e7d4ba0df561f7b1b8f"
           }
         },
         {
-          "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBXIxhn3hGn6GLo-GluXtFh7aD5SYvOhCg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:331775188497:android:65aec32f90925ff51a1bb0",
-        "android_client_info": {
-          "package_name": "com.example.future_builder"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "331775188497-dsfv44gjgrupbur2irfu48p3vjtbmgim.apps.googleusercontent.com",
+          "client_id": "331775188497-k0i3g5k9fjg9ldfokk0fc1mqmkufeaqe.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.future_builder",
-            "certificate_hash": "2692e287485e324176bc4d23d0dbfe76d8936bb8"
+            "package_name": "com.dakterbari.user_panel",
+            "certificate_hash": "a00e27c52c3b4a36b09abac93f06d958fb5c4627"
+          }
+        },
+        {
+          "client_id": "331775188497-vmsfd9suobcnunfa4aijmqkjluibupv8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dakterbari.user_panel",
+            "certificate_hash": "064b34ddbe7b6403a2f617bff9c8365c23cc57e0"
           }
         },
         {

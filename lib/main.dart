@@ -60,14 +60,14 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context)=>RegAuth(),),
-        ChangeNotifierProvider(create: (context)=>PatientProvider(),),
-        ChangeNotifierProvider(create: (context)=>DoctorProvider(),),
-        ChangeNotifierProvider(create: (context)=>AppointmentProvider(),),
-        ChangeNotifierProvider(create: (context)=>ArticleProvider(),),
+        ChangeNotifierProvider(create: (context)=>RegAuth()),
+        ChangeNotifierProvider(create: (context)=>PatientProvider()),
+        ChangeNotifierProvider(create: (context)=>DoctorProvider()),
+        ChangeNotifierProvider(create: (context)=>AppointmentProvider()),
+        ChangeNotifierProvider(create: (context)=>ArticleProvider()),
         ChangeNotifierProvider(create: (context)=>DiscountShopProvider()),
         ChangeNotifierProvider(create: (context)=>ForumProvider()),
-        ChangeNotifierProvider(create: (context) => ReviewProvider(),),
+        ChangeNotifierProvider(create: (context) =>ReviewProvider()),
       ],
       child: MaterialApp(
         //for country code picker

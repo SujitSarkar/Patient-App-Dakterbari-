@@ -156,9 +156,9 @@ class _MakeAppointmentPaymentState extends State<MakeAppointmentPayment> {
                 AamarpayData(
                     returnUrl: (url) async{
                       // setState(()=> _isLoading = false);
-                      if (url == 'https://secure.aamarpay.com/cancel')
-                        showSnackBar(
-                            _scaffoldKey, 'Payment canceled', Colors.deepOrange);
+                      if (url == 'https://secure.aamarpay.com/cancel'){
+                        showSnackBar(_scaffoldKey, 'Payment canceled', Colors.deepOrange);
+                      }
                       if (url == 'https://secure.aamarpay.com/fail')
                         showSnackBar(
                             _scaffoldKey, 'Payment failed', Colors.deepOrange);

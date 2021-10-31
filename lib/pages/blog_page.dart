@@ -341,7 +341,6 @@ class PostTile extends StatelessWidget {
                                 child: Image.asset('assets/loadingimage.gif',height: 90, width: 200,fit: BoxFit.cover,),
                               ),
                               errorWidget: (context, url, error) => Icon(Icons.error),
-
                               fit: BoxFit.cover,
                             ),
                           ),

@@ -650,7 +650,6 @@ class _ReadArticleState extends State<ReadArticle> {
   }
 }
 
-
 // ignore: must_be_immutable
 class PostTile extends StatelessWidget {
   int index;

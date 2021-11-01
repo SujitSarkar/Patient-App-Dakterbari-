@@ -60,62 +60,25 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:331775188497:android:18784b8f73a5ca681a1bb0",
+        "mobilesdk_app_id": "1:331775188497:android:b138e92f5cd8ab7d1a1bb0",
         "android_client_info": {
-          "package_name": "com.dakterbari.doctorpanel"
+          "package_name": "com.dakterbari.dactor_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "331775188497-7lohd68vq2ecqv1aa1honps7c0kl5pvn.apps.googleusercontent.com",
+          "client_id": "331775188497-3sg253n1s16jcv9q63v9nqq4jf9i0d38.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.dakterbari.doctorpanel",
-            "certificate_hash": "f7392e8bbb76af27a660752fa332be102914fda5"
+            "package_name": "com.dakterbari.dactor_app",
+            "certificate_hash": "af52626d386f42e1e22cab834f35f637c52d114e"
           }
         },
         {
-          "client_id": "331775188497-rfu5jeat7h0h2tnd4h5cn55e83j71o02.apps.googleusercontent.com",
+          "client_id": "331775188497-e97jgma1jscemgfpa7qh17nfbev5eat2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.dakterbari.doctorpanel",
-            "certificate_hash": "8a0a778e1e35adb089e8857744c988fb41cd0f8f"
-          }
-        },
-        {
-          "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBXIxhn3hGn6GLo-GluXtFh7aD5SYvOhCg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "331775188497-ck5867vvp8jed1je52s5n3rge9sojs4h.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:331775188497:android:b98c7d6e58fde34b1a1bb0",
-        "android_client_info": {
-          "package_name": "com.dakterbari.doctro_app_updated"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "331775188497-4t9oh9pbe930n0qogc1vg4uank42lfac.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.dakterbari.doctro_app_updated",
+            "package_name": "com.dakterbari.dactor_app",
             "certificate_hash": "f7392e8bbb76af27a660752fa332be102914fda5"
           }
         },
@@ -191,6 +154,14 @@
           "android_info": {
             "package_name": "com.dakterbari.user_panel",
             "certificate_hash": "da47c2ba74f7a07039169e7d4ba0df561f7b1b8f"
+          }
+        },
+        {
+          "client_id": "331775188497-j3puglrd3orcd21m5hf4h2kvnke7i006.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dakterbari.user_panel",
+            "certificate_hash": "f7392e8bbb76af27a660752fa332be102914fda5"
           }
         },
         {

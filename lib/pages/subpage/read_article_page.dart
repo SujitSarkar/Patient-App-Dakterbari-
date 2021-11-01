@@ -618,14 +618,9 @@ class _ReadArticleState extends State<ReadArticle> {
         });
       }
     }
-
   }
 
   Future<void> _shareArticle(ArticleProvider articleProvider) async {
-    // import 'package:flutter/foundation.dart';
-    // import 'dart:io';
-    // import 'dart:typed_data';
-    // import 'package:esys_flutter_share/esys_flutter_share.dart';
     final String articleContent= 'Title: ${widget.title}\n\n' +
         '\u{1F4C5}Date: ${widget.date}\n\n' + '\u{1F464}Author: ${widget.author}\n\n' +
         'Abstract: ${widget.abstract}\n\n' + 'Introduction: ${widget.introduction}\n\n'
@@ -640,7 +635,6 @@ class _ReadArticleState extends State<ReadArticle> {
           widget.photoUrl));
       var response = await request.close();
       Uint8List bytes = await consolidateHttpClientResponseBytes(response);
-      //Share.text('title','${widget.photoUrl}', 'text/plain');
       await Share.file('Article Image', 'articlePhoto.jpeg', bytes, 'image/jpeg',text: articleContent).then((value)async{
         //increment share
           String share;
@@ -654,17 +648,6 @@ class _ReadArticleState extends State<ReadArticle> {
       print('error: $e');
     }
   }
-
-  // Future<void> _shareArticle(ArticleProvider articleProvider)async{
-  //   final String articleContent= 'Title: ${widget.title}\n\n' +
-  //   '\u{1F4C5}Date: ${widget.date}\n\n' + '\u{1F464}Author: ${widget.author}\n\n' +
-  //       'Abstract: ${widget.abstract}\n\n' + 'Introduction: ${widget.introduction}\n\n'
-  //       +'Methods: ${widget.methods}\n\n' + 'Results: ${widget.results}\n\n' + 'Conclusion: ${widget.conclusion}\n\n'
-  //       +'Acknowledgement: ${widget.acknowledgement}\n\n'+ 'References: ${widget.reference}\n\n'
-  //       +'Article from Dakterbari ';
-  //
-  //    await Share.share(articleContent);
-  // }
 }
 
 
